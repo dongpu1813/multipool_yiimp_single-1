@@ -51,7 +51,6 @@ source system.sh
 source db.sh
 source web.sh
 source nginx_upgrade.sh
-source self_ssl.sh
 source stratum.sh
 source daemon.sh
 source server_cleanup.sh
