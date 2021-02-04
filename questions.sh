@@ -177,10 +177,12 @@ dialog --title "Verify Your Responses" \
 
 Dedicated Coin Ports : ${CoinPort}
 AutoExchange : ${AutoExchange}
+Using Domain : ${UsingDomain}
 Using Sub-Domain : ${UsingSubDomain}
 Install SSL      : ${InstallSSL}
 Domain Name      : ${DomainName}
 Stratum URL      : ${StratumURL}
+System Email     : ${SupportEmail}
 Your Public IP   : ${PublicIP}
 Admin Location   : ${AdminPanel}" 15 60
 
