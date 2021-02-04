@@ -25,6 +25,20 @@ else
   \n\nAfter answering the following questions, setup will be automated.
   \n\nNOTE: If installing on a system with less then 8 GB of RAM you may experience system issues!"
 fi
+
+# Begin user inputted responses for auto install
+dialog --title "Using Domain Name" \
+--yesno "Are you using a domain name? Example: example.com?
+Make sure the DNS is updated!" 7 60
+response=$?
+case $response in
+   0) UsingDomain=yes;;
+   1) UsingDomain=no;;
+   255) echo "[ESC] key pressed.";;
+esac
+
+if [[ ("$UsingDomain" == "yes") ]]; then
+
 dialog --title "Using Sub-Domain" \
 --yesno "Are you using a sub-domain for the main website domain? Example pool.example.com? Make sure the DNS is updated!" 7 60
 response=$?
@@ -42,6 +56,20 @@ case $response in
    1) InstallSSL=no;;
    255) echo "[ESC] key pressed.";;
 esac
+
+# Back to user input questions regardless of domain name or IP use
+if [ -z "${SupportEmail:-}" ]; then
+DEFAULT_SupportEmail=root@localhost
+input_box "System Email" \
+"Enter an email address for the system to send alerts and other important messages.
+\n\nSystem Email:" \
+${DEFAULT_SupportEmail} \
+SupportEmail
+
+if [ -z "${SupportEmail}" ]; then
+# user hit ESC/cancel
+exit
+fi
 
 dialog --title "Use AutoExchange" \
 --yesno "Would you like the stratum to be built with autoexchange enabled?" 7 60
