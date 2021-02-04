@@ -34,7 +34,7 @@ sudo rm -r db-4.8.30.NC.tar.gz db-4.8.30.NC
 echo -e "$GREEN Berkeley 4.8 Completed...$COL_RESET"
 
 echo -e " Building Berkeley 5.3, this may take several minutes...$COL_RESET"
-sudo mkdir -p $STORAGE_ROOT/berkeley/db5/
+sudo mkdir -p $STORAGE_ROOT/berkeley/db5.3/
 hide_output sudo wget 'http://anduin.linuxfromscratch.org/BLFS/bdb/db-5.3.28.tar.gz'
 hide_output sudo tar -xzvf db-5.3.28.tar.gz
 cd db-5.3.28/build_unix/
