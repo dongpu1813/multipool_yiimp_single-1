@@ -26,7 +26,6 @@ else
   \n\nNOTE: If installing on a system with less then 8 GB of RAM you may experience system issues!"
 fi
 
-# Begin user inputted responses for auto install
 dialog --title "Using Domain Name" \
 --yesno "Are you using a domain name? Example: example.com?
 Make sure the DNS is updated!" 7 60
@@ -57,7 +56,6 @@ case $response in
    255) echo "[ESC] key pressed.";;
 esac
 
-# Back to user input questions regardless of domain name or IP use
 if [ -z "${SupportEmail:-}" ]; then
 DEFAULT_SupportEmail=root@localhost
 input_box "System Email" \
